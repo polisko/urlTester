@@ -1,0 +1,27 @@
+{
+	"_comment" : "nonRegressionTests require that the expectedResult is respected by the current version of the app and the new version, checkTests are made only on the new version, responseCodeTests checks 200 response",
+	"appName" : "TH.Example.Web",
+	"nonRegressionTests": [
+		{
+			"URL": "/test/isRunning",
+			"testType": "exact",
+			"expectedResult": "true"
+		}
+	],
+	"checkTests": [
+		{
+			"URL": "/test/login/login.html",
+			"testType": "includes",
+			"expectedResult": "<!-- <div id=\"login\"></div> -->"
+		},
+            {
+                        "URL": "/test/login/login.html",
+                        "testType": "regex",
+                        "expectedResult": "^<!DOCTYPE html>(?s).*</html>$"
+                }
+	],
+	"responseCodeTests" : [
+		"/test/isRunning",
+		"/test/login/login.html"
+	]
+}
